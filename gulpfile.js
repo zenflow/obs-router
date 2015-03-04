@@ -13,7 +13,6 @@ gulp.task('clean', function (done) {
 		done();
 	} else {
 		cleaned = true;
-		console.log('clean');
 		del(['test/dist'], done);
 	}
 });
