@@ -1,0 +1,27 @@
+{
+  "name": "obs-router",
+  "version": "0.0.1",
+  "description": "Observable converter between urls and named routes with parameters, with the option to bind to document location in the browser.",
+  "main": "lib/index.js",
+  "author": "Matthew Francis Brunetti",
+  "license": "MIT",
+  "dependencies": {
+    "html5-history": "^0.1.5",
+    "lodash": "^3.3.1",
+    "querystring": "^0.2.0",
+    "route-parser": "0.0.3"
+  },
+  "devDependencies": {
+    "browserify": "^9.0.3",
+    "chai": "^2.1.0",
+    "del": "^1.1.1",
+    "express": "^4.12.0",
+    "gulp": "^3.8.11",
+    "gulp-sourcemaps": "^1.3.0",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.0.0"
+  },
+  "browser": {
+	  "./lib/index.js": "./lib/index.client.js"
+  }
+}
