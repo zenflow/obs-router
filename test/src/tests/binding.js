@@ -21,7 +21,6 @@ describe('browser window state binding', function(){
 			assert.strictEqual(url, document.location.pathname+document.location.search);
 		};
 		assertUrl(router.url);
-		console.log('router.url', router.url);
 		var urls = ['/', '/a/sf', '/a', '/b/asf', '/c/c/c', '/c/c/c/c', '/?asd=asd'];
 		_.forEach(urls, function(url){
 			router.pushUrl(url);
