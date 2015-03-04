@@ -3,8 +3,15 @@
   "version": "0.0.1",
   "description": "Observable converter between urls and named routes with parameters, with the option to bind to document location in the browser.",
   "main": "lib/index.js",
-  "author": "Matthew Francis Brunetti",
+  "author": {
+    "name": "Matthew Francis Brunetti",
+    "email": "zenflow87@gmail.com"
+  },
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zenflow/obs-router"
+  },
   "dependencies": {
     "html5-history": "^0.1.5",
     "lodash": "^3.3.1",
