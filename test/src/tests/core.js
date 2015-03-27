@@ -19,7 +19,7 @@ describe('core observable functionality', function(){
 		assert.strictEqual(router.route, 'notfound');
 		assert.strictEqual(JSON.stringify(router.params), '{"path":""}');
 		_(router._routes).keys().without('notfound').forEach(function(route){
-			assert.strictEqual(router[route], null);
+			assert.strictEqual(router.routes[route], null);
 		});
 	});
 	it('should only output the first matched route', function () {
@@ -27,9 +27,9 @@ describe('core observable functionality', function(){
 		router.setUrl('/does/not');
 		router.setUrl('/does/not/exist');
 		_(router._routes).keys().without('notfound').forEach(function(route){
-			assert.strictEqual(router[route], null);
+			assert.strictEqual(router.routes[route], null);
 		});
-		assert.strictEqual(JSON.stringify(router.notfound), '{"path":"/does/not/exist"}');
+		assert.strictEqual(JSON.stringify(router.routes.notfound), '{"path":"/does/not/exist"}');
 	});
 	it('should only notify on changed values', function(){
 		// set observers
