@@ -11,7 +11,8 @@ describe('core observable functionality', function(){
 				b: '/b(/:x)',
 				c: '/c/:x/c',
 				notfound: '*path'
-			}
+			},
+			bindToWindow: false
 		});
 	});
 	it('should initialize to a consistent state ', function(){
