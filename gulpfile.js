@@ -62,6 +62,4 @@ gulp.task('serve', ['build'], function(){
 	console.log( 'Watching...' );
 });
 
-gulp.task('default', [ 'build' ], function () {
-	console.log('Build Complete');
-});
+gulp.task('default', ['serve']);
