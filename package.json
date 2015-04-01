@@ -1,6 +1,6 @@
 {
   "name": "obs-router",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Observable converter between urls and named routes with parameters, with the option to bind to document location in the browser.",
   "main": "lib/index.js",
   "author": {
