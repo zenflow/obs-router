@@ -1,0 +1,3 @@
+automate testing
+throw error if user does router.setRoute(unreachable_route)
+smoothScroll option
