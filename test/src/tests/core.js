@@ -58,8 +58,8 @@ describe('core observable functionality', function(){
 	it('should properly convert urls to and from routes', function(){
 		_.forEach(['/a?what=2', '/b?no=1', '/b/sf', '/c/c/c?f=', '/c/d/e/f'], function (url) {
 			var params = {};
-			var route = router.getRouteFromUrl(url, params);
-			assert.strictEqual(router.getUrlFromRoute(route, params), url);
+			var route = router.urlToRoute(url, params);
+			assert.strictEqual(router.routeToUrl(route, params), url);
 		})
 	})
 });
