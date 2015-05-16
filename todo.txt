@@ -1,4 +1,5 @@
-set old_route and old_params
+change to immutable data types http://swannodette.github.io/mori/
+expose old_route and old_params as properties
 automate testing
 throw error if user does router.setRoute(unreachable_route)
 smoothScroll option
