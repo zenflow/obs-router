@@ -24,9 +24,9 @@ describe('core observable functionality', function(){
 		});
 	});
 	it('should only output the first matched route', function () {
-		router.setUrl('/does');
-		router.setUrl('/does/not');
-		router.setUrl('/does/not/exist');
+		router.replaceUrl('/does');
+		router.replaceUrl('/does/not');
+		router.replaceUrl('/does/not/exist');
 		_(router._routes).keys().without('notfound').forEach(function(route){
 			assert.strictEqual(router.routes[route], null);
 		});
@@ -43,9 +43,9 @@ describe('core observable functionality', function(){
 		var setNotMissing = function(){missing = false;};
 		router.on('notfound', setNotMissing);
 		// make a change within the current route
-		router.setUrl('/also');
-		router.setUrl('/also/doesnt');
-		router.setUrl('/also/doesnt/exist');
+		router.replaceUrl('/also');
+		router.replaceUrl('/also/doesnt');
+		router.replaceUrl('/also/doesnt/exist');
 		// check
 		assert.ok(!false_positive);
 		assert.ok(!missing);
@@ -58,8 +58,8 @@ describe('core observable functionality', function(){
 	it('should properly convert urls to and from routes', function(){
 		_.forEach(['/a?what=2', '/b?no=1', '/b/sf', '/c/c/c?f=', '/c/d/e/f'], function (url) {
 			var params = {};
-			var route = router.fromUrl(url, params);
-			assert.strictEqual(router.toUrl(route, params), url);
+			var route = router.getRouteFromUrl(url, params);
+			assert.strictEqual(router.getUrlFromRoute(route, params), url);
 		})
 	})
 });

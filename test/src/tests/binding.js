@@ -11,8 +11,8 @@ describe('browser window state binding', function(){
 				b: '/b(/:x)',
 				c: '/c/:x/c',
 				notfound: '*path'
-			},
-			bindToWindow: true
+			}
+			//,bindToWindow: true //this is true by default anyways
 		});
 	});
 	it('url should always match the current browser location', function(cb){
