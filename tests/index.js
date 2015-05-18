@@ -65,6 +65,7 @@ test('converts urls to routes and back to same urls', function(t){
 	router.destroy();
 });
 if (_.support.dom){
+	console.log('running in browser yo')
 	test('always matches the current browser location', function(t){
 		var router = getDummyRouter(true);
 		var assertUrl = function(url){

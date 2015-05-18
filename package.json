@@ -27,20 +27,7 @@
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.0.0"
   },
-  "testling": {
-    "files": "tests/index.js",
-    "browsers": [
-      "ie/6..latest",
-      "chrome/22..latest",
-      "firefox/16..latest",
-      "safari/latest",
-      "opera/11.0..latest",
-      "iphone/6",
-      "ipad/6",
-      "android-browser/latest"
-    ]
-  },
   "scripts": {
-    "test": "browserify tests/index.js | testling"
+    "test": "node tests/index.js"
   }
 }
