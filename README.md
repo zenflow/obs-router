@@ -1,7 +1,12 @@
 # obs-router
-Two-way mapping between urls (rather pathname + querystring) and named routes with parameters. Optionally (& by default) binds to document location in the browser. Exposes EventEmitter interface for changes.
 
-Tagling says it all.
+Abstract and observe url as route with parameters
+
+[![Build Status](https://travis-ci.org/zenflow/waitr.svg?branch=master)](https://travis-ci.org/zenflow/waitr)
+
+One-to-one association between urls (rather pathname + querystring) and named routes with parameters. 
+
+Optionally (& by default) binds to document location in the browser.
 
 ## example usage
 
@@ -13,7 +18,7 @@ var api = require('./api');
 var router = new ObsRouter({
     routes: {
         home: '/',
-        blog: '/blog(/:slug)(/tag/:tag),
+        blog: '/blog(/:slug)(/tag/:tag)',
         contact: '/contact'
     }
 });
