@@ -1,7 +1,7 @@
 # obs-router
 
 Abstract and observe url as route with parameters
-
+[![Build Status][travis-image]][travis-url] [![Dependency Status][depstat-image]][depstat-url] 
 [![Build Status](https://travis-ci.org/zenflow/waitr.svg?branch=master)](https://travis-ci.org/zenflow/waitr)
 
 One-to-one association between urls (rather pathname + querystring) and named routes with parameters. 
