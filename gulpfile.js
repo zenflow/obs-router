@@ -1,4 +1,4 @@
-var browserify_node_modules = ['lodash', 'events', 'route-parser', 'querystring', 'html5-history', 'chai'];
+var browserify_node_modules = ['lodash', 'events', 'route-parser', 'querystring', 'html5-history', 'tape'];
 var gulp = require('gulp');
 var del = require('del');
 var browserify = require('browserify');
