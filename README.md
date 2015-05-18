@@ -1,14 +1,15 @@
 # obs-router
 
-Abstract and observe url as route with parameters
-[![Build Status][travis-image]][travis-url] [![Dependency Status][depstat-image]][depstat-url] 
-[![Build Status](https://travis-ci.org/zenflow/waitr.svg?branch=master)](https://travis-ci.org/zenflow/waitr)
+##Abstract and observe url as route with parameters
+
+[![build status](https://travis-ci.org/zenflow/obs-router.svg?branch=master)](https://travis-ci.org/zenflow/obs-router?branch=master)
+[![dependencies](https://david-dm.org/zenflow/obs-router.svg)](https://david-dm.org/zenflow/obs-router)
 
 One-to-one association between urls (rather pathname + querystring) and named routes with parameters. 
 
 ObsRouter instances optionally (& by default) bind to document location in the browser.
 
-## example usage
+### example usage
 
 ```js
 var ObsRouter = require('obs-router');
