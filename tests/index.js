@@ -66,6 +66,7 @@ test('converts urls to routes and back to same urls', function(t){
 });
 if (_.support.dom){
 	test('always matches the current browser location', function(t){
+		var router = getDummyRouter(true);
 		var assertUrl = function(url){
 			t.ok(router.url==(document.location.pathname+document.location.search));
 			if (url!=undefined){
@@ -82,6 +83,7 @@ if (_.support.dom){
 		var loop = function(){
 			assertUrl(urls[i]);
 			if (i-- == 0) {
+				router.destroy();
 				t.end();
 			}
 			window.history.go(-1);
