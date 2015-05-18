@@ -6,7 +6,7 @@ Abstract and observe url as route with parameters
 
 One-to-one association between urls (rather pathname + querystring) and named routes with parameters. 
 
-Optionally (& by default) binds to document location in the browser.
+ObsRouter instances optionally (& by default) bind to document location in the browser.
 
 ## example usage
 
