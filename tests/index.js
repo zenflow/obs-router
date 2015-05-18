@@ -65,13 +65,12 @@ test('converts urls to routes and back to same urls', function(t){
 	router.destroy();
 });
 if (_.support.dom){
-	console.log('running in browser yo')
 	test('always matches the current browser location', function(t){
 		var router = getDummyRouter(true);
 		var assertUrl = function(url){
-			t.ok(router.url==(document.location.pathname+document.location.search));
+			t.equal(router.url, window.document.location.pathname+window.document.location.search);
 			if (url!=undefined){
-				t.ok(router.url==url);
+				t.equal(router.url, url);
 			}
 		};
 		assertUrl();
@@ -84,13 +83,14 @@ if (_.support.dom){
 		var loop = function(){
 			assertUrl(urls[i]);
 			if (i-- == 0) {
-				router.destroy();
 				t.end();
+				router.destroy();
+			} else {
+				window.history.back(1);
+				assertUrl(); //not updated yet but make sure router.url is consistent with document location
+				//allow some time for this to register
+				setTimeout(loop, 300);
 			}
-			window.history.go(-1);
-			assertUrl(); //not updated yet but make sure router.url is consistent with document location
-			//allow 250 ms for this to register
-			setTimeout(loop, 250);
 		};
 		loop();
 	});
