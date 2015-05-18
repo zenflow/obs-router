@@ -18,13 +18,12 @@
     "route-parser": "0.0.3"
   },
   "devDependencies": {
+    "gather-events": "^1.0.0",
     "run-browser": "^2.0.2",
     "tape": "^4.0.0"
   },
   "scripts": {
-    "test": "node_modules\\.bin\\run-browser tests/index.js --phantom"
-  },
-  "engines": {
-    "node": ">= 0.12.0"
+    "test": "node_modules\\.bin\\run-browser tests/index.js --phantom",
+    "start": "node_modules\\.bin\\run-browser tests/index.js"
   }
 }

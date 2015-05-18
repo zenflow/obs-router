@@ -1,5 +1,6 @@
 var test = require('tape');
 var _ = require('lodash');
+var gatherEvents = require('gather-events');
 var ObsRouter = require('../lib');
 
 var dummy_routes = {
@@ -9,7 +10,7 @@ var dummy_routes = {
 	c: '/c/:x/c',
 	notfound: '*path'
 };
-var dummy_urls = ['/a?what=2', '/b?no=1', '/b/sf', '/c/c/c?f=', '/c/d/e/f'];
+var dummy_urls = ['/a', '/b/asf', '/c/c/c', '/c/c/c?f=1', '/c/c/c/c', '/d/d/d', '/?asd=asd'];
 
 test('exposes routes with same keys (in same order) as input routes', function(t){
 	t.plan(1);
@@ -34,25 +35,26 @@ test('recognises only the first matched route', function(t){
 	t.ok(checkRouterState(router, '/a', 'a', {}), "checkRouterState(router, '/a', 'a', {})");
 	router.destroy();
 });
-test('only notifies on changed values', function(t){
-	t.plan(2);
+test('emits expected events', function(t){
+	t.plan(1);
 	var router = getDummyRouter();
-	// listeners
-	var missing = true;
-	var setNotMissing = function(){missing = false;};
-	var false_positive = false;
-	var setFalsePositive = function(){false_positive = true;};
-	// attach listeners
-	router.on('notfound', setNotMissing);
-	_.forEach(_.without(_.keys(router.routes), 'notfound'), function (route){
-		router.on(route, setFalsePositive);
-	});
-	// make a change within the current route
-	router.replaceUrl('/doesnt');
-	router.replaceUrl('/doesnt/exist');
-	// check
-	t.ok(!false_positive);
-	t.ok(!missing);
+	var returnEvents = gatherEvents(router, ['url', 'route'].concat(_.keys(dummy_routes)));
+	router.replaceUrl('/a');
+	router.pushUrl('/b/cuz');
+	router.replaceRoute('b');
+	t.deepEqual(returnEvents(), [
+		{name: 'url', args: ['/a', '']},
+		{name: 'route', args:['a', {}, 'notfound', {path: ''}]},
+		{name: 'notfound', args: [null]},
+		{name: 'a', args: [{}]},
+		{name: 'url', args: ['/b/cuz', '/a']},
+		{name: 'route', args:['b', {x: 'cuz'}, 'a', {}]},
+		{name: 'a', args: [null]},
+		{name: 'b', args: [{x: 'cuz'}]},
+		{name: 'url', args: ['/b', '/b/cuz']},
+		{name: 'route', args:['b', {x: undefined}, 'b', {x: 'cuz'}]},
+		{name: 'b', args: [{x: undefined}]},
+	]);
 	router.destroy();
 });
 test('converts urls to routes and back to same urls', function(t){
@@ -74,14 +76,13 @@ if (_.support.dom){
 			}
 		};
 		assertUrl();
-		var urls = ['/', '/a/sf', '/a', '/b/asf', '/c/c/c', '/c/c/c/c', '/?asd=asd'];
-		_.forEach(urls, function(url){
+		_.forEach(dummy_urls, function(url){
 			router.pushUrl(url);
 			assertUrl(url);
 		});
-		var i = urls.length-1;
+		var i = dummy_urls.length-1;
 		var loop = function(){
-			assertUrl(urls[i]);
+			assertUrl(dummy_urls[i]);
 			if (i-- == 0) {
 				t.end();
 				router.destroy();
