@@ -28,7 +28,7 @@
     "vinyl-source-stream": "^1.0.0"
   },
   "testling": {
-    "files": ["tests/index.js"],
+    "files": "tests/index.js",
     "browsers": [
       "ie/6..latest",
       "chrome/22..latest",
@@ -41,6 +41,6 @@
     ]
   },
   "scripts": {
-    "test": "tape tests/index.js"
+    "test": "browserify tests/index.js | testling"
   }
 }
