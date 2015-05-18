@@ -17,7 +17,7 @@ test('exposes routes with same keys (in same order) as input routes', function(t
 	var router = getDummyRouter();
 	t.ok(keysEqual(router.routes, dummy_routes), "keysEqual(router.routes, dummy_routes)");
 	router.destroy();
-})
+});
 test('initialises to consistent state', function(t){
 	t.plan(1);
 	var router = getDummyRouter();
@@ -63,6 +63,14 @@ test('converts urls to routes and back to same urls', function(t){
 	var params;
 	_.forEach(dummy_urls, function (url) {
 		t.ok(router.routeToUrl(router.urlToRoute(url, params = {}), params)===url);
+	});
+	router.destroy();
+});
+test('throws error if we try to compute url of unreachable route', function(t){
+	t.plan(1);
+	var router = getDummyRouter();
+	t.throws(function(){
+		router.routeToUrl('notfound', {path: '/'});
 	});
 	router.destroy();
 });
