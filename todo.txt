@@ -1,4 +1,4 @@
 jsdoc website
-sandbox
-change to immutable data types http://swannodette.github.io/mori/
 smoothScroll option
+router.on('home contact', doSomething);
+router.on('/blog*path', doSomethingElse);

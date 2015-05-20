@@ -33,7 +33,8 @@ var router = new ObsRouter({
     blog: '/blog(/tag/:tag)(/:slug)',
     contact: '/contact'
 }, {
-    initialEmit: true // emit events even though nothing has changed
+    //bindToWindow: false, // would prevent binding to document location on the browser
+    initialEmit: true // cause to emit events after nextTick even though nothing has changed
 });
 
 router.on('route', function(route, params, old_route, old_params){
