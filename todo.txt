@@ -1,4 +1,3 @@
-jsdoc website
 smoothScroll option
 router.on('home contact', doSomething);
 router.on('/blog*path', doSomethingElse);

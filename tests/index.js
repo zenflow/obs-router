@@ -15,10 +15,11 @@ var dummy_patterns = {
 };
 var dummy_urls = ['/a', '/b/asf', '/c/c/c', '/c/c/c?f=1', '/c/c/c/c', '/d/d/d', '/?asd=asd'];
 
-test('exposes routes with same keys (in same order) as patterns', function(t){
-	t.plan(1);
+test('exposes routes with same keys (in same order) as patterns, as well as said patterns', function(t){
+	t.plan(2);
 	var router = getDummyRouter();
 	t.ok(keysEqual(router.routes, dummy_patterns), "keysEqual(router.routes, dummy_patterns)");
+	t.ok(keysEqual(router.routes, router.patterns), "keysEqual(router.routes, dummy_patterns)");
 	router.destroy();
 });
 test('initialises to consistent state', function(t){
@@ -112,9 +113,9 @@ function getDummyRouter(bindToWindow){
 		bindToWindow: bindToWindow
 	});
 }
-function checkRouterState(router, url, route, params){
-	return (router.url===url) && (router.route===route) && (JSON.stringify(router.params)===JSON.stringify(params))
-		&& (router.routes[route]===router.params) && checkNullRoutes(router, route);
+function checkRouterState(router, url, name, params){
+	return (router.url===url) && (router.name===name) && (JSON.stringify(router.params)===JSON.stringify(params))
+		&& (router.routes[name]===router.params) && checkNullRoutes(router, name);
 }
 function checkNullRoutes(router, exclude){
 	var null_routes = without(keys(router.routes), exclude);

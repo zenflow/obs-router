@@ -24,6 +24,7 @@
     "url": "https://github.com/zenflow/obs-router"
   },
   "dependencies": {
+    "cancellable-next-tick": "^1.0.0",
     "html5-history": "^0.1.5",
     "lodash.assign": "^3.2.0",
     "lodash.create": "^3.1.0",
@@ -32,7 +33,6 @@
     "lodash.keys": "^3.1.0",
     "lodash.support": "^3.0.3",
     "lodash.without": "^3.2.1",
-    "next-tick": "https://github.com/zenflow/next-tick/tarball/master",
     "route-parser": "0.0.3"
   },
   "devDependencies": {
