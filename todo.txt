@@ -1,4 +1,3 @@
-push to gh-pages
 document events
 add more examples in jsdocs
 smoothScroll option
