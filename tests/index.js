@@ -3,7 +3,7 @@ var _ = require('lodash');
 var gatherEvents = require('gather-events');
 var ObsRouter = require('../lib');
 
-var dummy_routes = {
+var dummy_patterns = {
 	home: '/',
 	a: '/a',
 	b: '/b(/:x)',
@@ -12,10 +12,10 @@ var dummy_routes = {
 };
 var dummy_urls = ['/a', '/b/asf', '/c/c/c', '/c/c/c?f=1', '/c/c/c/c', '/d/d/d', '/?asd=asd'];
 
-test('exposes routes with same keys (in same order) as input routes', function(t){
+test('exposes routes with same keys (in same order) as patterns', function(t){
 	t.plan(1);
 	var router = getDummyRouter();
-	t.ok(keysEqual(router.routes, dummy_routes), "keysEqual(router.routes, dummy_routes)");
+	t.ok(keysEqual(router.routes, dummy_patterns), "keysEqual(router.routes, dummy_patterns)");
 	router.destroy();
 });
 test('initialises to consistent state', function(t){
@@ -38,7 +38,7 @@ test('recognises only the first matched route', function(t){
 test('emits expected events', function(t){
 	t.plan(1);
 	var router = getDummyRouter();
-	var returnEvents = gatherEvents(router, ['url', 'route'].concat(_.keys(dummy_routes)));
+	var returnEvents = gatherEvents(router, ['url', 'route'].concat(_.keys(dummy_patterns)));
 	router.replaceUrl('/a');
 	router.pushUrl('/b/cuz');
 	router.replaceRoute('b');
@@ -105,8 +105,7 @@ if (_.support.dom){
 	});
 }
 function getDummyRouter(bindToWindow){
-	return new ObsRouter({
-		routes: dummy_routes,
+	return new ObsRouter(dummy_patterns, {
 		bindToWindow: bindToWindow
 	});
 }

@@ -1,4 +1,3 @@
-routes input-> patterns
 lodash per-method modules
 jsdoc website
 sandbox
