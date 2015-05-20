@@ -16,6 +16,7 @@ Also exposes static methods, `routeToUrl` and `urlToRoute`, which both take the 
 
 Uses [route-parser](http://npmjs.org/package/route-parser) to match and obtain parameters from pathnames, and node native 'querystring' for query parameters.
 
+Check out the [documentation](https://zenflow.github.io/obs-router).
 
 ### links
 

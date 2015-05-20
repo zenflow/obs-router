@@ -1,6 +1,6 @@
 {
   "name": "obs-router",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Mutable observable abstraction of url as route with parameters",
   "keywords": [
     "observe",
