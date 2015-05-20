@@ -1,4 +1,4 @@
-if (window.document.location=='zenflow.github.io') {
+if (window.document.location.hostname=='zenflow.github.io') {
 	(function (i, s, o, g, r, a, m) {
 		i['GoogleAnalyticsObject'] = r;
 		i[r] = i[r] || function () {
