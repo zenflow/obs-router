@@ -7,7 +7,7 @@
 
 ObsRouter provides a two-way mapping between urls (rather pathname + query) and named routes with parameters, given a named set of pathname patterns. 
 
-Use static methods, `routeToUrl` or `urlToRoute`, or instances, which optionally (& by default) bind to document location in the browser, using [?istory.js](https://www.npmjs.com/package/history.js) html5 history polyfill.
+Use static methods, `routeToUrl` or `urlToRoute`, or instances, which optionally (& by default) bind to document location in the browser, using [html5-history](https://www.npmjs.com/package/html5-history) polyfill.
 
 Uses [route-parser](http://npmjs.org/package/route-parser) to match and obtain parameters from pathnames, and node native 'querystring' for query parameters.
 
