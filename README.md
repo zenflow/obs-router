@@ -1,15 +1,17 @@
 # obs-router
 
-##Abstract and observe url as route with parameters
+##Mutable observable url / route with parameters
 
 [![build status](https://travis-ci.org/zenflow/obs-router.svg?branch=master)](https://travis-ci.org/zenflow/obs-router?branch=master)
 [![dependencies](https://david-dm.org/zenflow/obs-router.svg)](https://david-dm.org/zenflow/obs-router)
 
-One-to-one association between urls (rather pathname + querystring) and named routes with parameters. 
+ObsRouter provides a two-way mapping between urls (rather pathname + query) and named routes with parameters, given a named set of pathname patterns. 
 
-ObsRouter instances optionally (& by default) bind to document location in the browser.
+Use static methods, `routeToUrl` or `urlToRoute`, or instances, which optionally (& by default) bind to document location in the browser, using [?istory.js](https://www.npmjs.com/package/history.js) html5 history polyfill.
 
-### example usage
+Uses [route-parser](http://npmjs.org/package/route-parser) to match and obtain parameters from pathnames, and node native 'querystring' for query parameters.
+
+### client-side example
 
 ```js
 var ObsRouter = require('obs-router');
@@ -17,19 +19,14 @@ var presenter = require('./presenter');
 var api = require('./api');
 
 var router = new ObsRouter({
-    routes: {
+    patterns: {
         home: '/',
         blog: '/blog(/:slug)(/tag/:tag)',
         contact: '/contact'
     }
 });
-router.on('route', function(route_name, params, old_route_name, old_params){
-    if (route=='home'){
-        presenter.growNav();
-    } else { 
-        presenter.shrinkNav();
-    }
-    presenter.switchPage(route_name);
+router.on('route', function(route, params, old_route, old_params){
+    presenter.updatePage(route, params);
 });
 router.on('blog', function(params){
     if (params){
