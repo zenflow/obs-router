@@ -1,7 +1,6 @@
-initialEmit option
 routes input-> patterns
+lodash per-method modules
 jsdoc website
 sandbox
 change to immutable data types http://swannodette.github.io/mori/
-expose old_route and old_params as properties?
 smoothScroll option
