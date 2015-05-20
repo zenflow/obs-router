@@ -19,15 +19,15 @@ var presenter = require('./presenter');
 var api = require('./api');
 
 var router = new ObsRouter({
-    patterns: {
-        home: '/',
-        blog: '/blog(/:slug)(/tag/:tag)',
-        contact: '/contact'
-    }
-});
+    home: '/',
+    blog: '/blog(/:slug)(/tag/:tag)',
+    contact: '/contact'
+}, {initialEmit: true});
+
 router.on('route', function(route, params, old_route, old_params){
     presenter.updatePage(route, params);
 });
+
 router.on('blog', function(params){
     if (params){
         if (params.slug){
