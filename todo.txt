@@ -1,3 +1,5 @@
+initialEmit option
+routes input-> patterns
 jsdoc website
 sandbox
 change to immutable data types http://swannodette.github.io/mori/

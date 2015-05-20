@@ -1,7 +1,7 @@
 {
   "name": "obs-router",
   "version": "1.0.0",
-  "description": "Abstract and observe url as route with parameters",
+  "description": "Mutable observable url / route with parameters",
   "keywords": [
     "observe",
     "observable",
@@ -29,12 +29,16 @@
     "route-parser": "0.0.3"
   },
   "devDependencies": {
+    "del": "^1.1.1",
     "gather-events": "^1.0.1",
+    "gulp": "^3.8.11",
+    "gulp-jsdoc": "^0.1.4",
     "run-browser": "^2.0.2",
     "tape": "^4.0.0"
   },
   "scripts": {
     "test": "node_modules\\.bin\\run-browser tests/index.js --phantom",
-    "start": "node_modules\\.bin\\run-browser tests/index.js"
+    "start": "node_modules\\.bin\\run-browser tests/index.js",
+    "docs": "node_modules\\.bin\\gulp docs"
   }
 }
