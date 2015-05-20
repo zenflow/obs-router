@@ -6,6 +6,8 @@
 [![dependencies](https://david-dm.org/zenflow/obs-router.svg)](https://david-dm.org/zenflow/obs-router)
 [![dev-dependencies](https://david-dm.org/zenflow/obs-router/dev-status.svg)](https://david-dm.org/zenflow/obs-router#info=devDependencies)
 
+[![npm](https://nodei.co/npm/obs-router.svg?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/obs-router)
+
 ### description
 
 ObsRouter provides a two-way mapping between urls (rather pathname + query) and named routes with parameters, given a named set of pathname patterns. 
@@ -24,6 +26,11 @@ Check out the [documentation](https://zenflow.github.io/obs-router).
 - [github](https://github.com/zenflow/obs-router)
 - [documentation](https://zenflow.github.io/obs-router)
 
+### installation
+
+```
+npm install --save obs-router
+```
 
 ### example
 

@@ -44,8 +44,8 @@
     "tape": "^4.0.0"
   },
   "scripts": {
-    "test": "node_modules\\.bin\\run-browser tests/index.js --phantom",
-    "start": "node_modules\\.bin\\run-browser tests/index.js",
-    "docs": "node_modules\\.bin\\gulp docs"
+    "test": "node tests && node_modules\\.bin\\run-browser tests/index.js --phantom",
+    "dev": "node_modules\\.bin\\run-browser tests/index.js",
+    "docs": "cd docs && ..\\node_modules\\.bin\\gulp && cd .."
   }
 }
