@@ -69,6 +69,16 @@ router.on('blog', function(params){
 
 ### changelog
 
+#### 2.0.3
+
+* Added update task to docs gulpfile
+* Automated npm publish with travis
+
+#### 2.0.2
+
+* Improved documentation
+* fixed google analytics for docs
+
 #### 2.0.1
 
 * Improved documentation
