@@ -1,15 +1,6 @@
 language: node_js
 node_js:
   - '0.10'
-before_install:
-  - 'npm install -g npm@latest'
+  - '0.12'
 notifications:
   email: true
-deploy:
-  provider: npm
-  email: zenflow87@gmail.com
-  api_key:
-    secure: eNRZ/TUSmTlUyRboYEO7dQpu6WwEirSHIxbAAeGn3iY03v8J3JYUCwGA0opJ72gnobgXnFvfqL41mWHSF2TAdVUP4t8u2UnTkX+4DbWZnYxxTPOQDQcBM8iGigICGjX3Q/tYXqHillZhKflHAuo/3OK63VjXe6QeVk91Ak3MJfw=
-  on:
-    tags: true
-    repo: zenflow/obs-router

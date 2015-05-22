@@ -46,7 +46,6 @@
   },
   "scripts": {
     "test": "node_modules\\.bin\\run-browser tests/index.js --phantom && node tests",
-    "postinstall": "mkdir .git && mkdir .git/logs && mkdir .git/logs/refs && mkdir .git/logs/refs/stash",
     "dev": "node_modules\\.bin\\run-browser tests/index.js",
     "docs": "cd docs && ..\\node_modules\\.bin\\gulp && cd .."
   }
