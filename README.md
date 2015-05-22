@@ -71,8 +71,8 @@ router.on('blog', function(params){
 
 #### 2.0.3
 
-* Added update task to docs gulpfile
-* Automated npm publish with travis
+* Added commit task to docs gulpfile using [gh-pages-commit](https://npmjs.org/package/gh-pages-commit)
+* Automated `npm publish` with travis
 
 #### 2.0.2
 
