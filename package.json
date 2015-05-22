@@ -40,7 +40,6 @@
     "gather-events": "^1.0.1",
     "gh-pages-commit": "^1.0.2",
     "gulp": "^3.8.11",
-    "gulp-gh-pages": "^0.5.1",
     "gulp-jsdoc": "^0.1.4",
     "run-browser": "^2.0.2",
     "tape": "^4.0.0"
