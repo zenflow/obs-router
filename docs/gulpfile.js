@@ -4,9 +4,9 @@ var jsdoc = require('gulp-jsdoc');
 var package_json = require('../package.json');
 var fs = require('fs');
 var path = require('path');
-var wrench = require('wrench');
-var child_process = require('child_process');
-var find = require('lodash.find');
+//var child_process = require('child_process');
+//var find = require('lodash.find');
+var ghPages = require('gulp-gh-pages');
 var styles = '<style type="text/css">'+fs.readFileSync(path.join(__dirname, 'src/styles.css'), 'utf8')+'</style>';
 var scripts = '<script type="text/javascript">'+fs.readFileSync(path.join(__dirname, 'src/scripts.js'), 'utf8')+'</script>';
 
@@ -34,7 +34,11 @@ gulp.task('build', ['clean'], function(){
 gulp.task('watch', ['build'], function(){
 	gulp.watch(['src/styles.css', 'src/scripts.js', '../README.md', '../lib/**/**.js'], ['build'])
 });
-gulp.task('update', ['build'], function(cb){
+gulp.task('update', ['build'], function(){
+	return gulp.src('build/'+package_json.name+'/'+package_json.version+'/**/**')
+		.pipe(ghPages());
+});
+/*gulp.task('update', ['build'], function(cb){
 	exec('git status', function(error, status_str){
 		if (error){return cb(error);}
 		var status_lines = status_str.split('\n');
@@ -60,8 +64,6 @@ gulp.task('update', ['build'], function(cb){
 		});
 	});
 });
-gulp.task('default', ['build']);
-
 function exec(cmd, cb){
 	console.log('$ '+cmd);
 	child_process.exec(cmd, function(error, stdout, stderr){
@@ -73,4 +75,5 @@ function exec(cmd, cb){
 			cb(null, stdout);
 		}
 	});
-}
+}*/
+gulp.task('default', ['build']);
