@@ -48,7 +48,9 @@ gulp.task('update', ['build'], function(cb){
 		var previous_branch = match[1];
 		exec('git checkout gh-pages', function(error){
 			if (error){return cb(error);}
-			wrench.copyDirRecursive('build/'+package_json.name+'/'+package_json.version+'/', '../', function(error){
+			wrench.copyDirRecursive('build/'+package_json.name+'/'+package_json.version+'/', '../', {
+				forceDelete: true
+			}, function(error){
 				if (error){return cb(error);}
 				exec('git add ../ && git commit -m "automatic update"', function(error){
 					if (error){return cb(error);}
