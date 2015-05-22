@@ -33,7 +33,8 @@
     "lodash.keys": "^3.1.0",
     "lodash.support": "^3.0.3",
     "lodash.without": "^3.2.1",
-    "route-parser": "0.0.3"
+    "route-parser": "0.0.3",
+    "wrench": "^1.5.8"
   },
   "devDependencies": {
     "del": "^1.1.1",
