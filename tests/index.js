@@ -1,10 +1,7 @@
 var test = require('tape');
+var _ = require('lodash');
 var gatherEvents = require('gather-events');
 var ObsRouter = require('../lib');
-var forEach = require('lodash.foreach');
-var keys = require('lodash.keys');
-var support = require('lodash.support');
-var without = require('lodash.without');
 
 var dummy_patterns = {
 	home: '/',
@@ -42,7 +39,7 @@ test('recognises only the first matched route', function(t){
 test('emits expected events', function(t){
 	t.plan(1);
 	var router = getDummyRouter();
-	var returnEvents = gatherEvents(router, ['url', 'route'].concat(keys(dummy_patterns)));
+	var returnEvents = gatherEvents(router, ['url', 'route'].concat(_.keys(dummy_patterns)));
 	router.replaceUrl('/a');
 	router.pushUrl('/b/cuz');
 	router.replaceRoute('b');
@@ -65,7 +62,7 @@ test('converts urls to routes and back to same urls', function(t){
 	t.plan(dummy_urls.length);
 	var router = getDummyRouter();
 	var params;
-	forEach(dummy_urls, function (url) {
+	_.forEach(dummy_urls, function (url) {
 		t.ok(router.routeToUrl(router.urlToRoute(url, params = {}), params)===url);
 	});
 	router.destroy();
@@ -78,7 +75,7 @@ test('throws error if we try to compute url of unreachable route', function(t){
 	});
 	router.destroy();
 });
-if (support.dom){
+if (process.browser){
 	test('always matches the current browser location', function(t){
 		var router = getDummyRouter(true);
 		var assertUrl = function(url){
@@ -88,7 +85,7 @@ if (support.dom){
 			}
 		};
 		assertUrl();
-		forEach(dummy_urls, function(url){
+		_.forEach(dummy_urls, function(url){
 			router.pushUrl(url);
 			assertUrl(url);
 		});
@@ -118,7 +115,7 @@ function checkRouterState(router, url, name, params){
 		&& (router.routes[name]===router.params) && checkNullRoutes(router, name);
 }
 function checkNullRoutes(router, exclude){
-	var null_routes = without(keys(router.routes), exclude);
+	var null_routes = _.without(_.keys(router.routes), exclude);
 	for (var i = 0; i < null_routes.length; i++){
 		if (router.routes[null_routes[i]]!==null){
 			return false;
@@ -127,5 +124,5 @@ function checkNullRoutes(router, exclude){
 	return true;
 }
 function keysEqual(a, b){
-	return JSON.stringify(keys(a))===JSON.stringify(keys(b));
+	return JSON.stringify(_.keys(a))===JSON.stringify(_.keys(b));
 }

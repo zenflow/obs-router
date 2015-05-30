@@ -69,6 +69,10 @@ router.on('blog', function(params){
 
 ### changelog
 
+#### 2.0.4
+
+* One dependency for lodash utilities
+
 #### 2.0.3
 
 * Added commit task to docs gulpfile using [gh-pages-commit](https://npmjs.org/package/gh-pages-commit)

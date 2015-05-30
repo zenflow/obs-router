@@ -26,13 +26,7 @@
   "dependencies": {
     "cancellable-next-tick": "^1.0.0",
     "html5-history": "^0.1.5",
-    "lodash.assign": "^3.2.0",
-    "lodash.create": "^3.1.0",
-    "lodash.find": "^3.2.0",
-    "lodash.foreach": "^3.0.3",
-    "lodash.keys": "^3.1.0",
-    "lodash.support": "^3.0.3",
-    "lodash.without": "^3.2.1",
+    "lodash": "^3.9.3",
     "route-parser": "0.0.3"
   },
   "devDependencies": {
