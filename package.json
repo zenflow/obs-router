@@ -1,7 +1,7 @@
 {
   "name": "obs-router",
   "version": "2.0.4",
-  "description": "Mutable observable abstraction of url as route with parameters",
+  "description": "Mutable observable abstraction of url as route with parameters **Deprecated in favor of [routeemitter](https://github.com/zenflow/routeemitter)**",
   "keywords": [
     "observe",
     "observable",

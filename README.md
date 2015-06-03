@@ -1,6 +1,5 @@
 # obs-router
-
-## Mutable observable abstraction of url as route with parameters
+Mutable observable abstraction of url as route with parameters **Deprecated in favor of [routeemitter](https://github.com/zenflow/routeemitter)**
 
 [![build status](https://travis-ci.org/zenflow/obs-router.svg?branch=master)](https://travis-ci.org/zenflow/obs-router?branch=master)
 [![dependencies](https://david-dm.org/zenflow/obs-router.svg)](https://david-dm.org/zenflow/obs-router)
@@ -8,7 +7,7 @@
 
 [![npm](https://nodei.co/npm/obs-router.svg?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/obs-router)
 
-### description
+## description
 
 ObsRouter provides a two-way mapping between urls (rather pathname + query) and named routes with parameters, given a named set of pathname patterns. 
 
@@ -16,23 +15,23 @@ Instances are EventEmitters & optionally (& by default) bind to document locatio
 
 Also exposes static methods, `routeToUrl` and `urlToRoute`, which both take the patterns as their first argument.
 
-Uses [route-parser](http://npmjs.org/package/route-parser) to match and obtain parameters from pathnames, and node native 'querystring' for query parameters.
+Uses [route-parser](http://github.com/zenflow/route-parser) to match and obtain parameters from pathnames, and node native 'querystring' for query parameters.
 
 Check out the [documentation](https://zenflow.github.io/obs-router).
 
-### links
+## links
 
 - [npm](https://npmjs.org/package/obs-router)
 - [github](https://github.com/zenflow/obs-router)
 - [documentation](https://zenflow.github.io/obs-router)
 
-### installation
+## installation
 
 ```
 npm install --save obs-router
 ```
 
-### example
+## example
 
 ```js
 var ObsRouter = require('obs-router');
@@ -67,22 +66,27 @@ router.on('blog', function(params){
 });
 ```
 
-### changelog
+## changelog
 
-#### 2.0.4
+### 2.0.5
+
+* Fixed readme
+* Deprecated
+
+### 2.0.4
 
 * One dependency for lodash utilities
 
-#### 2.0.3
+### 2.0.3
 
-* Added commit task to docs gulpfile using [gh-pages-commit](https://npmjs.org/package/gh-pages-commit)
+* Added commit task to docs gulpfile using [gh-pages-commit](https://github.com/zenflow/gh-pages-commit)
 
-#### 2.0.2
+### 2.0.2
 
 * Improved documentation
 * fixed google analytics for docs
 
-#### 2.0.1
+### 2.0.1
 
 * Improved documentation
 * fixed package.json scripts.test command for unix
