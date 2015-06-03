@@ -1,5 +1,0 @@
-document events
-add more examples in jsdocs
-smoothScroll option
-router.on('home contact', doSomething);
-router.on('/blog*path', doSomethingElse);
